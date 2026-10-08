@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Поиск примеров</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Основная навигация">
+      <a class="brand" href="index.html">Русский язык · 8 класс</a>
+      <div class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="generator.html">Генератор билетов</a>
+        <a href="database.html" aria-current="page">Поиск примеров</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container stack">
+    <div class="section-head">
+      <div><p class="eyebrow">Литературная база</p><h1>Поиск примеров</h1></div>
+      <p>По автору, произведению или тексту цитаты.</p>
+    </div>
+
+    <section class="card">
+      <label for="search"><strong>Поисковый запрос</strong></label>
+      <input id="search" class="search-input" type="search" placeholder="Например: Лермонтов, Бородино…" autocomplete="off">
+      <p id="results-meta" class="results-meta" aria-live="polite"></p>
+      <div id="results" class="results"></div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="database.js"></script>
+</body>
+</html>

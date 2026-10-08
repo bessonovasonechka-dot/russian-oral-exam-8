@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Генератор билетов</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Основная навигация">
+      <a class="brand" href="index.html">Русский язык · 8 класс</a>
+      <div class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="generator.html" aria-current="page">Генератор билетов</a>
+        <a href="database.html">Поиск примеров</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container stack">
+    <div class="section-head">
+      <div><p class="eyebrow">Единая шпаргалка</p><h1>Генератор билетов</h1></div>
+      <p>Справочник используется только для ИИ-ответов.</p>
+    </div>
+
+    <section class="card no-print">
+      <h2>1. Загрузите справочник</h2>
+      <div class="file-row">
+        <input id="reference-file" type="file" accept=".txt,text/plain" aria-label="Справочник в формате TXT">
+        <button id="load-file" class="button" type="button">Загрузить TXT</button>
+      </div>
+      <p id="file-status" class="status" role="status">Файл не загружен.</p>
+
+      <details class="api-panel">
+        <summary>Настройка OpenAI API</summary>
+        <label for="api-key">API-ключ</label>
+        <input id="api-key" class="api-input" type="password" placeholder="sk-..." autocomplete="off">
+        <p class="hint">Ключ хранится только в памяти этой вкладки. Для публичного сайта перенесите API-вызов на сервер, чтобы не раскрывать ключ пользователям.</p>
+      </details>
+    </section>
+
+    <section class="card no-print">
+      <h2>2. Выберите билеты</h2>
+      <div id="ticket-list" class="ticket-list"></div>
+      <div class="actions">
+        <button id="generate" class="button" type="button">Сгенерировать ответы</button>
+        <button id="clear" class="button danger" type="button">Очистить</button>
+      </div>
+      <p id="generation-status" class="status" role="status"></p>
+    </section>
+
+    <section id="output" class="card output" hidden>
+      <div class="output-toolbar">
+        <div><p class="eyebrow">Готовый материал</p><h2>Шпаргалка</h2></div>
+        <button id="print" class="button secondary no-print" type="button">Печать / Сохранить PDF</button>
+      </div>
+      <div id="shpora-content"></div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="generator.js"></script>
+</body>
+</html>
